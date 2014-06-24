@@ -40,12 +40,13 @@
 - (void)messageInputView:(SOMessageInputView *)inputView didSendMessage:(NSString *)message;
 
 /**
+ * Called when input view becomeFirstResponder
+ */
+- (void)messageInputViewDidBeginEditing:(SOMessageInputView *)inputView;
+
+/**
  * Called when user tap on attach media button
  */
 - (void)messageInputViewDidSelectMediaButton:(SOMessageInputView *)inputView;
-/**
- * Called when input view becomeFirstResponder
- */
-- (void)inputViewDidBeginEditing:(SOMessageInputView *)inputView;
 
 @end
