@@ -109,7 +109,9 @@ static NSDateFormatter* dateFormatter;
             NSInteger section = self.conversation.count - 1;
             NSInteger row = [self.conversation[section] count] - 1;
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+            if (indexPath.row != -1) {
+                [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+            }
         }
     });
 }
