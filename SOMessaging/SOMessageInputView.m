@@ -290,8 +290,8 @@
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(inputViewDidBeginEditing:)]) {
-        [self.delegate inputViewDidBeginEditing:self];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(messageInputViewDidBeginEditing:)]) {
+        [self.delegate messageInputViewDidBeginEditing:self];
     }
 }
 
