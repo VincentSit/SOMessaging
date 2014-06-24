@@ -127,6 +127,11 @@
 }
 
 #pragma mark - Public methods
+
+- (void)setPanGestureEnable:(BOOL)panGestureEnable {
+    panGesture.enabled = panGestureEnable;
+}
+
 - (void)adjustInputView
 {
     CGRect frame = self.frame;

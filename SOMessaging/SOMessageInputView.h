@@ -39,6 +39,7 @@
 @property (strong, nonatomic) UIButton *mediaButton;
 
 @property (strong, nonatomic) UIView *separatorView;
+@property (nonatomic) BOOL panGestureEnable;
 
 @property (nonatomic, readonly) BOOL viewIsDragging;
 
