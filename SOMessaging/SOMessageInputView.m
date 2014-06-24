@@ -61,6 +61,7 @@
     self.textleftMargin = 5.0f;
     self.textTopMargin = 5.5f;
     self.textBottomMargin = 5.5f;
+    self.panGestureEnable = YES;
     
     CGRect frame = CGRectZero;
     frame.size.height = self.textInitialHeight;
