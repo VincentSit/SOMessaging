@@ -283,7 +283,9 @@
         [self.textView scrollRectToVisible:usedFrame animated:YES];
     }
     
-    [self adjustTableViewWithCurve:NO scrollsToBottom:YES];
+    if (self.panGestureEnable) {
+        [self adjustTableViewWithCurve:NO scrollsToBottom:YES];
+    }
 }
 
 #pragma mark - textview delegate
@@ -318,7 +320,9 @@
     frame.origin.y = self.superview.bounds.size.height - frame.size.height - keyboardRect.size.height;
     initialInputViewPosYWhenKeyboardIsShown = frame.origin.y;
     
-    [self adjustTableViewWithCurve:YES scrollsToBottom:YES];
+    if (self.panGestureEnable) {
+        [self adjustTableViewWithCurve:YES scrollsToBottom:YES];
+    }
     
     [UIView animateWithDuration:duration animations:^{
         [UIView setAnimationCurve:curve];
@@ -347,7 +351,9 @@
 
     }];
     
-    [self adjustTableViewWithCurve:YES scrollsToBottom:!keyboardHidesFromDragging];
+    if (self.panGestureEnable) {
+        [self adjustTableViewWithCurve:YES scrollsToBottom:!keyboardHidesFromDragging];
+    }
     
     keyboardHidesFromDragging = NO;
 }
