@@ -129,7 +129,13 @@
 #pragma mark - Public methods
 
 - (void)setPanGestureEnable:(BOOL)panGestureEnable {
-    panGesture.enabled = panGestureEnable;
+    if (panGesture) {
+        [self.superview removeGestureRecognizer:panGesture];
+    }
+    if (panGestureEnable) {
+        panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+        [self.superview addGestureRecognizer:panGesture];
+    }
 }
 
 - (void)adjustInputView
