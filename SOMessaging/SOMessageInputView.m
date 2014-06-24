@@ -289,6 +289,12 @@
     [self adjustTextViewSize];    
 }
 
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(inputViewDidBeginEditing:)]) {
+        [self.delegate inputViewDidBeginEditing:self];
+    }
+}
+
 #pragma mark - Notifications handlers
 - (void)handleKeyboardWillShowNote:(NSNotification *)notification
 {

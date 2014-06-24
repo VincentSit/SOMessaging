@@ -43,5 +43,9 @@
  * Called when user tap on attach media button
  */
 - (void)messageInputViewDidSelectMediaButton:(SOMessageInputView *)inputView;
+/**
+ * Called when input view becomeFirstResponder
+ */
+- (void)inputViewDidBeginEditing:(SOMessageInputView *)inputView;
 
 @end
