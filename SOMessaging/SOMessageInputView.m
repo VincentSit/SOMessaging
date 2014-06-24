@@ -128,16 +128,6 @@
 
 #pragma mark - Public methods
 
-- (void)setPanGestureEnable:(BOOL)panGestureEnable {
-    if (panGesture) {
-        [self.superview removeGestureRecognizer:panGesture];
-    }
-    if (panGestureEnable) {
-        panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
-        [self.superview addGestureRecognizer:panGesture];
-    }
-}
-
 - (void)adjustInputView
 {
     CGRect frame = self.frame;
@@ -201,12 +191,13 @@
     }
     
     tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-    panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
-    
-    panGesture.delegate = self;
-    
     [self addGestureRecognizer:tapGesture];
-    [self.superview addGestureRecognizer:panGesture];
+    
+    if (self.panGestureEnable) {
+        panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+        panGesture.delegate = self;
+        [self.superview addGestureRecognizer:panGesture];
+    }
     
     UINavigationController *nc = [self navigationControllerInstance];
     nc.cantAutorotate = NO;
